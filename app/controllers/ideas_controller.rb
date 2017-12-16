@@ -1,13 +1,16 @@
 class IdeasController < ApplicationController
   def index
-    @ideas = Idea.all
+    @user = User.find(params[:user_id])
+    @ideas = @user.ideas
   end
 
   def new
-    @idea = Idea.new
+    @user = User.find(params[:user_id])
+    @idea = @user.ideas.new
   end
 
   def create
-    @idea = Idea.create(:idea)
+    @user = User.new
+    @idea = @user.ideas.create(:idea)
   end
 end
