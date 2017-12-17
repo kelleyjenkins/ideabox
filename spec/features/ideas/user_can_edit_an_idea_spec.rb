@@ -7,7 +7,7 @@ describe "User can edit an existing idea" do
 
   visit edit_user_idea_path(user, idea)
 
-  fill_in "idea[idea]", with: "New Idea"
+  fill_in "idea[title]", with: "New Idea"
   click_button "Update"
 
   expect(page).to have_content("New Idea")

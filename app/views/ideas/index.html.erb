@@ -1,5 +1,7 @@
 <h3> All Ideas </h3>
 
 <% @ideas.each do |idea| %>
-<%=  idea.idea %>
+<ul> <%= idea.title %>:
+<%=  idea.idea %></ul>
+<%= link_to "Delete", user_idea_path(@user, idea), method: "delete" %>
 <% end %>
