@@ -32,6 +32,11 @@ class IdeasController < ApplicationController
     redirect_to user_ideas_path(idea.user, idea)
   end
 
+  def destroy
+    Idea.destroy(params[:id])
+    redirect_to user_ideas_path(params[:user_id])
+  end
+
   private
 
   def idea_params
