@@ -32,8 +32,6 @@ class IdeasController < ApplicationController
     redirect_to user_ideas_path(idea.user, idea)
   end
 
-
-
   private
 
   def idea_params
