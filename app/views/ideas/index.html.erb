@@ -3,5 +3,6 @@
 <% @ideas.each do |idea| %>
 <ul> <%= idea.title %>:
 <%=  idea.idea %></ul>
+<%= idea.category.name %>
 <%= link_to "Delete", user_idea_path(@user, idea), method: "delete" %>
 <% end %>
