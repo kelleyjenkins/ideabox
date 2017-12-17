@@ -21,7 +21,7 @@ class Admin::CategoriesController < ApplicationController
     @category.update(category_params)
     if @category.save
       flash[:success] = "#{@category.name} updated!"
-      redirect_to categories_path
+      redirect_to admin_categories_path
     else
       render :edit
     end
