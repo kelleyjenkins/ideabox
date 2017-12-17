@@ -10,10 +10,10 @@ class IdeasController < ApplicationController
   end
 
   def create
-    user = User.find(params[:user_id])
-    idea = user.ideas.create(idea_params)
+    @user = User.find(params[:user_id])
+    @idea = user.ideas.new(idea_params)
 
-    redirect_to user_path
+    redirect_to user_ideas_path(@user)
   end
 
   def show
