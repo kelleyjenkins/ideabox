@@ -4,7 +4,6 @@ describe "User can edit an existing idea" do
   scenario "a user can edit their own ideas" do
   user = create(:user)
   idea = create(:idea)
-  byebug
 
   visit edit_user_idea_path(user, idea)
 
