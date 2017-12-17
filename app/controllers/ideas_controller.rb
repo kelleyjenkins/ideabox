@@ -6,11 +6,13 @@ class IdeasController < ApplicationController
 
   def new
     @user = User.find(params[:user_id])
+    @categories = Category.all
     @idea = @user.ideas.new
   end
 
   def create
     @user = User.find(params[:user_id])
+
     @idea = @user.ideas.create!(idea_params)
 
     redirect_to user_ideas_path(@user)
@@ -24,6 +26,7 @@ class IdeasController < ApplicationController
   def edit
     @user = User.find(params[:user_id])
     @idea = Idea.find(params[:id])
+    @categories = Category.all
   end
 
   def update
@@ -40,6 +43,6 @@ class IdeasController < ApplicationController
   private
 
   def idea_params
-    params.require(:idea).permit(:title, :idea)
+    params.require(:idea).permit(:title, :idea, :category_id)
   end
 end

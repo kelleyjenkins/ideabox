@@ -3,4 +3,8 @@ Rails.application.routes.draw do
   resources :users do
     resources :ideas
   end
+
+  namespace:admin do
+    resources :categories
+  end 
 end
