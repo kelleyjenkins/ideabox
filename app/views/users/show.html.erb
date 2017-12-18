@@ -1,3 +1,4 @@
 <h1> Welcome, <%= current_user.name %>!</h1>
 
 <%= link_to "See Your Ideas", user_ideas_path(current_user) %>
+<%= link_to "Add a New Idea", new_user_idea_path(current_user) %>
