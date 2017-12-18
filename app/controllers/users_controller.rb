@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-        flash[:success] = "You created #{@user.username}'s Idea Account!"
+        flash[:success] = "You created #{@user.name}'s Idea Account!"
       redirect_to user_path(@user)
     else
       render :new
