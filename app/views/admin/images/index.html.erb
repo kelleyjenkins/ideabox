@@ -1,6 +1,6 @@
 <h1> Image </h1>
 
-<%= @images.each do |image| %>
+<% @images.each do |image| %>
 <%= image.name %>
 <%=image_tag(image.url, :alt => "dog") %><br/>
 
