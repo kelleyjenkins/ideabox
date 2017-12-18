@@ -2,6 +2,7 @@
 
 <%= @images.each do |image| %>
 <%= image.name %>
-<%=image_tag(image.url, :alt => "dog") %>
+<%=image_tag(image.url, :alt => "dog") %><br/>
+
 <%= link_to "Delete", admin_image_path(image), method: "delete" %>
 <% end  %>
