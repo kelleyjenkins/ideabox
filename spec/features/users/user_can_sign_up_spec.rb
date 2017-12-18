@@ -12,7 +12,7 @@ describe "User signs up for account" do
           expect(current_path).to eq(new_user_path)
 
           fill_in "user[name]", with: "Joe"
-          fill_in "user[eamil]", with: "joe@gmail.com"
+          fill_in "user[email]", with: "joe@gmail.com"
           fill_in "user[password]", with: "test"
 
           click_on "Create User"
