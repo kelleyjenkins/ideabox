@@ -5,7 +5,7 @@ describe "User can delete an idea" do
      user = create(:user)
      category = create(:category)
     idea = create(:idea, user: user, category: category)
-    # idea = user.ideas.create!(title: "Idea Two", idea: "another idea", category_id: category.id)
+
 
     visit user_ideas_path(user)
 
