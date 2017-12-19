@@ -2,6 +2,8 @@ class IdeasController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @ideas = @user.ideas
+    @images = Image.all
+
   end
 
   def new
@@ -27,6 +29,7 @@ class IdeasController < ApplicationController
     @user = User.find(params[:user_id])
     @idea = Idea.find(params[:id])
     @categories = Category.all
+    @images = Image.all
   end
 
   def update
