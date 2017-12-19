@@ -3,7 +3,7 @@ require 'rails_helper'
 describe "user visits images index page" do
   context "as an admin" do
     it "allows admin to see all images" do
-      admin = User.create(name: "Joe", email: "funbucket13@aol.com", password: "test", role: 1)
+      admin = create(:user, role: 1)
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 

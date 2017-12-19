@@ -4,7 +4,6 @@
 <ul> Name: <%= idea.title %><br/>
      Idea: <%=  idea.idea %><br/>
      Category: <%= idea.category.name %>
-     Image: <%= idea.images.url%><br/>
 
 <%= link_to "Delete", user_idea_path(@user, idea), method: "delete" %>
 <% end %>
