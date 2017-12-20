@@ -1,12 +1,28 @@
-<%= form_for [@user, @idea] do |f| %>
-<%= f.label :title %>
-<%= f.text_field :title %>
 
-<%= f.label :idea %>
-<%= f.text_field :idea %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Idea Box</title>
 
-<%= f.label :category_id %>
-<%= f.collection_select(:category_id, @categories, :id, :name) %>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+  </head>
 
-<%= f.submit %>
-<% end %>
+<div class="panel-body">
+  <div class="row">
+    <div class="col-lg-12">
+      <%= bootstrap_form_for [@user, @idea] do |f| %>
+      <%= f.text_field :title %>
+      <%= f.text_field :idea %>
+      <%= f.collection_select(:category_id, @categories, :id, :name) %>
+      <%= f.collection_check_boxes(:images, @images, :id, :name) %>
+      <%= f.submit %>
+      <% end %><br/>
+    </div>
+  </div>
+</div>
+</html>

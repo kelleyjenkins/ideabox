@@ -7,7 +7,7 @@ describe "User signs up for account" do
         it "a new user account is created" do
           visit "/"
 
-          click_on "Sign Up"
+          click_on "Register"
 
           expect(current_path).to eq(new_user_path)
 

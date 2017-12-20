@@ -1,4 +1,4 @@
 class Category < ApplicationRecord
   validates_presence_of :name, uniqueness: true
-  has_many :ideas
+  has_many :ideas, dependent: :nullify
 end

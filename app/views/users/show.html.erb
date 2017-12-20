@@ -1,3 +1,5 @@
+
+
 <h1> Welcome, <%= current_user.name %>!</h1>
 
 <%= link_to "See Your Ideas", user_ideas_path(current_user) %><br/>
@@ -7,5 +9,3 @@
 <%= link_to "See Categories", admin_categories_path %><br/>
 <%= link_to "See Images", admin_images_path %><br/>
 <% end  %>
-
-<%= link_to "Home", root_path %>

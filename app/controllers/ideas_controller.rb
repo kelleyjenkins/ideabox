@@ -1,4 +1,5 @@
 class IdeasController < ApplicationController
+  before_action :set_idea, only: [:show, :destory, :edit, :update]
   def index
     @user = User.find(params[:user_id])
     @ideas = @user.ideas
@@ -18,19 +19,17 @@ class IdeasController < ApplicationController
 
     @idea = @user.ideas.create!(idea_params)
 
-
     redirect_to user_ideas_path(@user)
   end
 
   def show
     @user= User.find(params[:user_id])
-    @idea = Idea.find(params[:id])
   end
 
   def edit
     @user = User.find(params[:user_id])
-    @idea = Idea.find(params[:id])
     @categories = Category.all
+    @images = Image.all
   end
 
   def update
@@ -47,6 +46,10 @@ class IdeasController < ApplicationController
   private
 
   def idea_params
-    params.require(:idea).permit(:title, :idea, :category_id)
+    params.require(:idea).permit(:title, :idea, :category_id, :image_ids)
+  end
+
+  def set_idea
+    @idea = Idea.find(params[:id])
   end
 end

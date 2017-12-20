@@ -4,12 +4,14 @@ describe "User creates a new idea" do
   scenario "a user creates a new idea" do
     user = create(:user)
     category = create(:category)
+    image = create(:image)
 
     visit new_user_idea_path(user)
 
     fill_in "idea[title]", with: "First Idea"
     fill_in "idea[idea]", with: "I have a brilliant idea!"
     select category.name, from: "idea[category_id]"
+    check 'Dog'
 
     click_on "Create Idea"
 
