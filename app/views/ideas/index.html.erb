@@ -1,8 +1,10 @@
 <h3> All Ideas </h3>
 
 <% @ideas.each do |idea| %>
-<ul> <%= idea.title %>:
-<%=  idea.idea %></ul>
-<%= idea.category.name %>
+<ul> Name: <%= idea.title %><br/>
+     Idea: <%=  idea.idea %><br/>
+     Category: <%= idea.category.name %>
+     Image: <%= idea.images.url%><br/>
+
 <%= link_to "Delete", user_idea_path(@user, idea), method: "delete" %>
 <% end %>

@@ -2,9 +2,10 @@ require 'rails_helper'
 
 describe "User can delete an idea" do
   scenario "user can delete one of their own ideas" do
-    user = create(:user)
-    category = create(:category)
-    idea = user.ideas.create!(title: "Idea Two", idea: "another idea", category_id: category.id)
+     user = create(:user)
+     category = create(:category)
+    idea = create(:idea, user: user, category: category)
+
 
     visit user_ideas_path(user)
 

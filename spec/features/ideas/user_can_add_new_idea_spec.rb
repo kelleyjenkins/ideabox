@@ -2,15 +2,14 @@ require 'rails_helper'
 
 describe "User creates a new idea" do
   scenario "a user creates a new idea" do
-
-    user = User.create!(name: "Joe", email: "joe@gmail.com", password: "joe123")
-    category = Category.create!(name: "Eureka")
+    user = create(:user)
+    category = create(:category)
 
     visit new_user_idea_path(user)
 
     fill_in "idea[title]", with: "First Idea"
     fill_in "idea[idea]", with: "I have a brilliant idea!"
-    select "Eureka", from: "idea[category_id]"
+    select category.name, from: "idea[category_id]"
 
     click_on "Create Idea"
 

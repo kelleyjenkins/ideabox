@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :ideas
   end
 
-  namespace:admin do
+  namespace :admin do
     resources :categories
     resources :images
   end

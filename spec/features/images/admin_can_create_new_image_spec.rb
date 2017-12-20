@@ -7,7 +7,7 @@ describe "Admin creates a new image" do
     fill_in "image[name]", with: "Dog"
     fill_in "image[url]", with: "https://images.pexels.com/photos/59523/pexels-photo-59523.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb"
     click_button "Create"
-    save_and_open_page
+
 
     expect(current_path).to eq(admin_images_path)
     expect(page).to have_content("Dog")
