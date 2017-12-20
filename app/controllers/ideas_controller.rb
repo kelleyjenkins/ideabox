@@ -10,12 +10,14 @@ class IdeasController < ApplicationController
     @user = User.find(params[:user_id])
     @categories = Category.all
     @idea = @user.ideas.new
+    @images = Image.all
   end
 
   def create
     @user = User.find(params[:user_id])
 
     @idea = @user.ideas.create!(idea_params)
+
 
     redirect_to user_ideas_path(@user)
   end
@@ -29,7 +31,6 @@ class IdeasController < ApplicationController
     @user = User.find(params[:user_id])
     @idea = Idea.find(params[:id])
     @categories = Category.all
-    @images = Image.all
   end
 
   def update
