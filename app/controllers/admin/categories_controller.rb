@@ -1,4 +1,5 @@
 class Admin::CategoriesController < Admin::BaseController
+  before_action :set_category, only: [:destroy, :edit, :update]
 
   def index
     @categories = Category.all
@@ -9,16 +10,19 @@ class Admin::CategoriesController < Admin::BaseController
   end
 
   def create
-    @category = Category.create(category_params)
-    redirect_to admin_categories_path
+    @category = Category.new(category_params)
+    if @category.save
+        flash[:success] = "You created the #{@category.name} category!"
+      redirect_to admin_categories_path
+    else
+      render :new
+    end
   end
 
   def edit
-    @category = Category.find(params[:id])
   end
 
   def update
-    @category = Category.find(params[:id])
     @category.update(category_params)
     if @category.save
       flash[:success] = "#{@category.name} updated!"
@@ -29,7 +33,6 @@ class Admin::CategoriesController < Admin::BaseController
   end
 
   def destroy
-    @category = Category.find(params[:id])
     @category.destroy
 
     flash[:success] = "#{@category.name} was successfully deleted!"
@@ -40,5 +43,9 @@ class Admin::CategoriesController < Admin::BaseController
 
   def category_params
     params.require(:category).permit(:name)
+  end
+
+  def set_category
+    @category = Category.find(params[:id])
   end
 end

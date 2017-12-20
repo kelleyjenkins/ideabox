@@ -14,7 +14,9 @@ describe "User can add an image to an idea" do
     fill_in "idea[title]", with: "First Idea"
     fill_in "idea[idea]", with: "I have a brilliant idea!"
     select category.name, from: "idea[category_id]"
-    select image.name, from: "image[name]"
+    check 'Dog'
+
+
 
     click_on "Create Idea"
 

@@ -4,6 +4,7 @@ describe "User can edit an existing idea" do
   scenario "a user can edit their own ideas" do
   user = create(:user)
   idea = create(:idea)
+  image = create(:image)
 
   visit edit_user_idea_path(user, idea)
 
