@@ -7,6 +7,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+
     <% if current_user == nil %>
     <nav class="navbar navbar-default">
       <div class="container-fluid">
@@ -15,7 +16,23 @@
         </div>
       </div>
     </nav>
-    <% else current_user == current_user %>
+    <% elsif current_user.admin? %>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+              <div class="navbar-brand" <%= link_to "Idea Box", user_path(current_user)%> </div>
+          </div>
+
+          <ul class="nav navbar-nav">
+            <li class="active"></li>
+            <li><%= link_to "Ideas", user_ideas_path(current_user) %></li>
+            <li><%= link_to "Categories", admin_categories_path %></li>
+            <li><%= link_to "Images", admin_images_path%></li>
+            <li><%= link_to 'Logout', logout_path, :method => :delete %></li>
+          </ul>
+        </div>
+      </nav>
+      <% else current_user.role == 0 %>
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -24,19 +41,13 @@
 
           <ul class="nav navbar-nav">
             <li class="active"></li>
-            <% if current_user == current_user %>
             <li><%= link_to "Ideas", user_ideas_path(current_user) %></li>
-            <% if current_user.admin? %>
-            <li><%= link_to "Categories", admin_categories_path %></li>
-            <li><%= link_to "Images", admin_images_path%></li>
-            <% end %>
             <li><%= link_to 'Logout', logout_path, :method => :delete %></li>
-            <% end  %>
           </ul>
         </div>
       </nav>
     <% end  %>
-
+<body>
     <%= yield %>
 
   </body>
