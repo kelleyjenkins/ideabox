@@ -1,11 +1,12 @@
 
 
 <h1> Welcome, <%= current_user.name %>!</h1>
-
-<%= link_to "See Your Ideas", user_ideas_path(current_user) %><br/>
-<%= link_to "Add a New Idea", new_user_idea_path(current_user) %><br/>
+<div class="buttons">
+<%= button_to "See Your Ideas", user_ideas_path(current_user), method: "get" %><br/>
+<%= button_to "Add a New Idea", new_user_idea_path(current_user), method: "get" %><br/>
 
 <% if current_user.admin? %>
-<%= link_to "Add New Category", new_admin_category_path %><br/>
-<%= link_to "Add New Image", new_admin_image_path %><br/>
+<%= button_to "Add a New Category", new_admin_category_path, method: "get" %><br/>
+<%= button_to "Add a New Image", new_admin_image_path, method: "get"%><br/>
 <% end  %>
+</div>
