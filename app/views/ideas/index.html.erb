@@ -9,7 +9,7 @@
                 <% else %>
                 <%= idea.category.name %>
                 <% end %><br/>
-     Image: <% idea.images.each do |image| %>
+     Image(s): <% idea.images.each do |image| %>
      <%= image_tag(image.url) %>
     <% end %></ul>
 <%= link_to "Edit", edit_user_idea_path(@user, idea) %>

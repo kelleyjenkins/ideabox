@@ -19,7 +19,7 @@
       <%= f.text_field :title %>
       <%= f.text_field :idea %>
       <%= f.collection_select(:category_id, @categories, :id, :name) %>
-      <%= f.collection_check_boxes(:images, @images, :id, :name) %>
+      <%= f.collection_check_boxes(:image_ids, @images, :id, :name) %>
       <%= f.submit %>
       <% end %><br/>
     </div>
