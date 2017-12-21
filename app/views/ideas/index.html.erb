@@ -15,7 +15,7 @@
 <h1><%=@user.name%>'s Ideas </h1>
 <div class="all_ideas">
 <% @ideas.each do |idea| %>
-<ul> Name: <%= link_to idea.title, user_idea_path(current_user, idea) %><br/>
+<ul> Name: <%= link_to idea.title, user_idea_path(@user, idea) %><br/>
      Idea: <%=  idea.idea %><br/>
      Category: <% if idea.category == nil %>
                 <%= "No Category" %>
