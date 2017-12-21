@@ -1,4 +1,10 @@
 
 
-<h2> <%= @idea.title %> </h2>
+<h1> <%= @idea.title %> </h1>
 <h4> <%= @idea.idea %></h4>
+<h4><%= @idea.category.name %></h4>
+<% @idea.images.each do |image| %>
+<h4><%= image_tag(image.url) %></h4>
+<% end  %>
+
+<h4><%= link_to "Return to Ideas!", user_ideas_path(@user) %></h4>
