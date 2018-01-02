@@ -1,12 +1,12 @@
+<div class="title">
+  <h1> All Categories </h1><br/>
+</div>
+<div class="categories">
+  <% @categories.each do |category| %>
+  <%= category.name %><br/>
 
-<h1> All Categories </h1><br/>
-
-
-<% @categories.each do |category| %>
-<%= category.name %><br/>
-
-<%= link_to "Delete", admin_category_path(category), method: "delete" %><br/>
-<% end  %>
-
+  <%= link_to "Delete", admin_category_path(category), method: "delete" %><br/><br/>
+  <% end  %>
+</div>
 
 <h4><%= link_to "Add New Category", new_admin_category_path %></h4>

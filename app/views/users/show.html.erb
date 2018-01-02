@@ -1,6 +1,7 @@
 
-
-<h1> Welcome, <%= current_user.name %>!</h1>
+<div class="title">
+<h1> Welcome, <%= current_user.name %>!</h1><br/>
+</div>
 <div class="buttons">
 <%= button_to "See Your Ideas", user_ideas_path(current_user), method: "get" %><br/>
 <%= button_to "Add a New Idea", new_user_idea_path(current_user), method: "get" %><br/>

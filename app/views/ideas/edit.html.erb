@@ -1,5 +1,10 @@
 
+<div class="title">
 
 <h1> Edit <%= @idea.title %> here! </h1>
 
+</div>
+
 <%= render partial: "form" %>
+
+<h4><%= link_to "Return to Ideas!", user_ideas_path(@user) %></h4>

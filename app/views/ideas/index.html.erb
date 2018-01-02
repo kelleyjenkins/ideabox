@@ -5,17 +5,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Idea Box</title>
-
-    <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
   </head>
 
-<h1><%=@user.name%>'s Ideas </h1>
+<div class="title">
+<h1><%=@user.name%>'s Ideas </h1><br/>
+</div>
 <div class="all_ideas">
 <% @ideas.each do |idea| %>
-<ul> Name: <%= link_to idea.title, user_idea_path(@user, idea) %><br/>
+<ul> <p="idea_title"><%= link_to idea.title, user_idea_path(@user, idea) %></p>
      Idea: <%=  idea.idea %><br/>
      Category: <% if idea.category == nil %>
                 <%= "No Category" %>
@@ -26,11 +25,12 @@
             <%= "No Images" %>
             <% else %>
                 <% idea.images.each do |image| %>
-                <%= image_tag(image.url) %>
+                <%= image_tag(image.url) %><br/><br/>
                 <%end  %>
-    <% end %><br/>
-<%= link_to "Edit", edit_user_idea_path(@user, idea) %>
-<%= link_to "Delete", user_idea_path(@user, idea), method: "delete" %> </ul>
+    <% end %>
+<p class="edit_delete"><%= link_to "Edit", edit_user_idea_path(@user, idea) %>
+<%= link_to "Delete", user_idea_path(@user, idea), method: "delete" %></p> </ul>
 <% end %>
-<h4> <%= link_to "Add New Idea", new_user_idea_path(@user) %> </h4>
 </div>
+<h4> <%= link_to "Add New Idea", new_user_idea_path(@user) %> </h4>
+<h4> <%= link_to "Home", user_path(@user) %> </h4>

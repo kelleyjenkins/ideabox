@@ -1,7 +1,6 @@
 body {
     padding: 20px;
-    background-image: url("https://www.walldevil.com/wallpapers/w01/543709-abstract-android-calm-circles-down-minimalistic-multicolor.jpg")
-
+    background-image: url("https://www.walldevil.com/wallpapers/w01/543709-abstract-android-calm-circles-down-minimalistic-multicolor.jpg");
 }
 .panel-login {
 	border-color: #ccc;
@@ -32,10 +31,13 @@ body {
   margin: auto;
 }
 
-h1{
+h1 {
+  font-family: "Book Antiqua", serif;
   text-align: center;
 }
+
 h4 {
+  font-family: "Book Antiqua", serif;
   text-align: center;
 }
 .col-xs-6 {
@@ -127,4 +129,32 @@ input {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+}
+
+.all_ideas {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.idea_title {
+  font-size: 18px;
+}
+
+.ideas {
+text-align: center;
+}
+
+.title {
+    font-family: "Book Antiqua", serif;
+    text-align: center;
+}
+
+.edit_delete {
+  display: flex;
+  justify-content: space-around;
+}
+
+.categories {
+  text-align: center;
 }
